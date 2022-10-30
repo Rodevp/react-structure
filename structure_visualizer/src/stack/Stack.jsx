@@ -1,9 +1,12 @@
-import styles from "./stack.module.css";
-import { useState } from "react";
+
+import { useState, useId } from "react";
 import { Title } from "../components/index";
 import StackItem from "./components/StackItem";
+import styles from "./stack.module.css";
+
 
 function Stack() {
+
   const [stack, setStack] = useState([]);
   const [item, setItem] = useState("");
 
@@ -49,9 +52,11 @@ function Stack() {
           </button>
         </div>
         <div className={styles.stack}>
-          {stack.map((item, index) => (
-            <StackItem className={styles.stackItem} key={index} item={item} />
-          ))}
+          {
+            stack.map( item => {
+            return <StackItem className={styles.stackItem} key={item} item={item} />
+            })
+          }
         </div>
       </section>
     </div>
