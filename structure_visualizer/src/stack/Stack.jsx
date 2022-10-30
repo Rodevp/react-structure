@@ -1,5 +1,5 @@
 
-import { useState, useId } from "react";
+import { useState } from "react";
 import { Title, Description } from "../components/index";
 import StackItem from "./components/StackItem";
 import styles from "./stack.module.css";
