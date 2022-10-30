@@ -50,10 +50,7 @@ function Stack() {
         </div>
         <div className={styles.stack}>
           {stack.map((item, index) => (
-            <StackItem
-                key={index}
-                item={item}
-            />
+            <StackItem className={styles.stackItem} key={index} item={item} />
           ))}
         </div>
       </section>
