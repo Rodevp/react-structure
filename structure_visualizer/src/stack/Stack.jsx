@@ -3,17 +3,20 @@ import { useState } from "react";
 import { Title } from "../components/index";
 
 function Stack() {
+
   const [stack, setStack] = useState([]);
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState("");
 
   const addItem = () => {
     setStack([item, ...stack]);
+    setItem("")
   };
 
   const deleteItem = () => {
     const stackCopy = [...stack];
     stackCopy.shift()
     setStack(stackCopy);
+    setItem("")
   };
 
   const handleInput = e => {
@@ -31,11 +34,17 @@ function Stack() {
       </section>
       <section className="">
         <div>
-          <input type="text" placeholder="Introduce un elemento"  onChange={handleInput}/>
+          <input type="text" value={item} placeholder="Introduce un elemento"  onChange={handleInput}/>
           <button onClick={addItem}>Apilar</button>
           <button onClick={deleteItem}>Desapilar</button>
         </div>
-        <div className="">{JSON.stringify(stack)}</div>
+        <div className={styles.stack}>
+            {
+                stack.map((item, index) => (
+                    <p key={index}>{item}</p>
+                ))
+            }
+        </div>
       </section>
     </div>
   );
