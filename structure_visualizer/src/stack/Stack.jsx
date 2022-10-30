@@ -1,6 +1,6 @@
 
 import { useState, useId } from "react";
-import { Title } from "../components/index";
+import { Title, Description } from "../components/index";
 import StackItem from "./components/StackItem";
 import styles from "./stack.module.css";
 
@@ -29,12 +29,12 @@ function Stack() {
   return (
     <div>
       <Title>Estructura de datos STACK 📚</Title>
-      <section>
+      <Description>
         Una pila (stack en inglés) es una lista ordenada o estructura de datos
         que permite almacenar y recuperar datos, siendo el modo de acceso a sus
         elementos de tipo LIFO (del inglés Last In, First Out, «último en
         entrar, primero en salir»).
-      </section>
+      </Description>
       <section className={styles.playground}>
         <div className={styles.actions}>
           <input
@@ -44,12 +44,14 @@ function Stack() {
             onChange={handleInput}
             className={styles.input}
           />
-          <button onClick={addItem} className={styles.button}>
+         <div>
+         <button onClick={addItem} className={styles.button}>
             Apilar
           </button>
           <button onClick={deleteItem} className={styles.button}>
             Desapilar
           </button>
+         </div>
         </div>
         <div className={styles.stack}>
           {

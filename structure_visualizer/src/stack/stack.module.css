@@ -8,12 +8,20 @@
 .actions {
     width: 30%;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.actions > div {
+    display: flex;
+    padding: 1rem;
 }
 
 .input {
     width: 100%;
     height: 50px;
+    padding-left: 1rem;
 }
 
 .stack {
@@ -22,8 +30,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    height: 150px;
-    background-color: red;
+    height: 400px;
+    background-color: #F2F3F5;
 }
 
 .stackItem {
@@ -33,12 +41,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: green;
 }
 
 .button {
-    width: 50%;
+    width: 120px;
     height: 30px;
+    margin-left: 5px;
     border-radius: 6px;
     border: none;
 }
