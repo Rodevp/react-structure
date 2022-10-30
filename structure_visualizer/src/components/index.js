@@ -1,5 +1,5 @@
-import Header from './header/Header'
+import Title from './header/Header'
 
 export {
-    Header
+    Title
 }

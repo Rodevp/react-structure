@@ -1,10 +1,10 @@
-function Header(props) {
+function Title(props) {
 
   const { children } = props
 
   return (
-    <header>{children}</header>
+    <h1>{children}</h1>
   )
 }
 
-export default Header
+export default Title
