@@ -1,49 +1,60 @@
 import styles from "./stack.module.css";
 import { useState } from "react";
 import { Title } from "../components/index";
+import StackItem from "./components/StackItem";
 
 function Stack() {
-
   const [stack, setStack] = useState([]);
   const [item, setItem] = useState("");
 
   const addItem = () => {
     setStack([item, ...stack]);
-    setItem("")
+    setItem("");
   };
 
   const deleteItem = () => {
     const stackCopy = [...stack];
-    stackCopy.shift()
+    stackCopy.shift();
     setStack(stackCopy);
-    setItem("")
+    setItem("");
   };
 
-  const handleInput = e => {
-    setItem(e.target.value)
-  }
+  const handleInput = (e) => {
+    setItem(e.target.value);
+  };
 
   return (
     <div>
-      <Title>Estructura de datos STACK</Title>
+      <Title>Estructura de datos STACK 📚</Title>
       <section>
         Una pila (stack en inglés) es una lista ordenada o estructura de datos
         que permite almacenar y recuperar datos, siendo el modo de acceso a sus
         elementos de tipo LIFO (del inglés Last In, First Out, «último en
         entrar, primero en salir»).
       </section>
-      <section className="">
-        <div>
-          <input type="text" value={item} placeholder="Introduce un elemento"  onChange={handleInput}/>
-          <button onClick={addItem}>Apilar</button>
-          <button onClick={deleteItem}>Desapilar</button>
+      <section className={styles.playground}>
+        <div className={styles.actions}>
+          <input
+            type="text"
+            value={item}
+            placeholder="Introduce un elemento"
+            onChange={handleInput}
+            className={styles.input}
+          />
+          <button onClick={addItem} className={styles.button}>
+            Apilar
+          </button>
+          <button onClick={deleteItem} className={styles.button}>
+            Desapilar
+          </button>
         </div>
         <div className={styles.stack}>
-            {
-                stack.map((item, index) => (
-                    <p key={index}>{item}</p>
-                ))
-            }
+          {stack.map((item, index) => (
+            <StackItem
+                key={index}
+                item={item}
+            />
+          ))}
         </div>
       </section>
     </div>
