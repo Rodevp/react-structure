@@ -27,8 +27,8 @@
 }
 
 .stackItem {
-    width: 50px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     border-radius: 10px;
     display: flex;
     align-items: center;
