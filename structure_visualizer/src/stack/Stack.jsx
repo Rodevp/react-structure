@@ -1,17 +1,13 @@
-
 import { useState } from "react";
 import { Title, Description } from "../components/index";
 import StackItem from "./components/StackItem";
 import styles from "./stack.module.css";
 
-
 function Stack() {
-
   const [stack, setStack] = useState([]);
-  const [item, setItem] = useState("");
 
   const addItem = () => {
-    setStack([item, ...stack]);
+    setStack([stack.length + 1, ...stack]);
     setItem("");
   };
 
@@ -19,11 +15,6 @@ function Stack() {
     const stackCopy = [...stack];
     stackCopy.shift();
     setStack(stackCopy);
-    setItem("");
-  };
-
-  const handleInput = (e) => {
-    setItem(e.target.value);
   };
 
   return (
@@ -37,28 +28,25 @@ function Stack() {
       </Description>
       <section className={styles.playground}>
         <div className={styles.actions}>
-          <input
-            type="text"
-            value={item}
-            placeholder="Introduce un elemento"
-            onChange={handleInput}
-            className={styles.input}
-          />
-         <div>
-         <button onClick={addItem} className={styles.button}>
-            Apilar
-          </button>
-          <button onClick={deleteItem} className={styles.button}>
-            Desapilar
-          </button>
-         </div>
+          <div>
+            <button
+              onClick={addItem}
+              className={styles.button}
+              disabled={stack.length === 5 ? true : false}
+            >
+              Apilar
+            </button>
+            <button onClick={deleteItem} className={styles.button}>
+              Desapilar
+            </button>
+          </div>
         </div>
         <div className={styles.stack}>
-          {
-            stack.map( item => {
-            return <StackItem className={styles.stackItem} key={item} item={item} />
-            })
-          }
+          {stack.map((item) => {
+            return (
+              <StackItem className={styles.stackItem} key={item} item={item} />
+            );
+          })}
         </div>
       </section>
     </div>
