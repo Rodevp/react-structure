@@ -1,10 +1,10 @@
-import Stack from "./stack/Stack"
+import Queue from "./qeue/Qeue"
 
 function App() {
 
   return (
     <div>
-      <Stack />
+      <Queue />
     </div>
   )
 }
