@@ -5,6 +5,10 @@ function QueueItem(props) {
 
   return (
     <motion.div
+      animate={{
+        y: 50,
+        x: '-100%'
+      }}
       className={className}
     >
       {item}
