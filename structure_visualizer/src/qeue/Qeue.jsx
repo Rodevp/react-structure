@@ -1,23 +1,21 @@
 import { useState } from "react";
 import QueueItem from "./components/QueueItem";
-import Title from "../components/header/Header";
-import Description from "../components/description/Description";
+import { Title } from "../components/index";
+import { Description } from "../components/index";
 import styles from "./queue.module.css";
 
 function Queue() {
-
-  const [queue, setQueue] = useState([])
+  const [queue, setQueue] = useState([]);
 
   const addItem = () => {
-    setQueue([queue.length + 1, ...queue])
-  }
+    setQueue([queue.length + 1, ...queue]);
+  };
 
   const deleteItem = () => {
-    const queueCopy = [...queue]
-    queueCopy.pop()
-    setQueue(queueCopy)
-  }
-
+    const queueCopy = [...queue];
+    queueCopy.pop();
+    setQueue(queueCopy);
+  };
 
   return (
     <div>
